@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Serial</th>
+      <th>Battery (%)</th>
+      <th>Status</th>
+      <th>Bérlés kezdete</th>
+      <th>Bérlés vége</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bike of bikes">
+      <td>{{ bike.id }}</td>
+      <td>{{ bike.serial }}</td>
+      <td [style.color]="getBatteryColor(bike.battery)">{{ bike.battery }}</td>
+      <td>{{ bike.status }}</td>
+      <td>{{ bike.rentalStart | date }}</td>
+      <td>{{ bike.rentalEnd | date }}</td>
+      <td>
+        <button
+          *ngIf="bike.status === 'Elérhető'"
+          (click)="navigateToRent(bike.id)"
+        >
+          Bérlés
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

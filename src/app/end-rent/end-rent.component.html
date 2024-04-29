@@ -1,0 +1,14 @@
+<!-- end-rent.component.html -->
+
+<mat-form-field appearance="fill">
+  <mat-label>Válassz egy kerékpárt:</mat-label>
+  <mat-select formControlName="bikeId">
+    <mat-option *ngFor="let bike of bikes" [value]="bike.id">
+      {{ bike.serial }} - {{ bike.renter }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="navigateBackToBikes()">
+  Vissza
+</button>

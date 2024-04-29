@@ -1,0 +1,7 @@
+<form [formGroup]="rentForm" (ngSubmit)="rentBike()">
+  <div>
+    <label for="name">Bérlő neve:</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+  <button type="submit">Bérlés</button>
+</form>
